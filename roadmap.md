@@ -129,8 +129,9 @@ A user can search the ESGF catalogue and get the correct result in a timely mann
 - **T5.2** Demonstrate searching with MetaGrid.  Show that results for CMIP6 match the current implementation.
 - **T5.3** Compatability with legacy search (*this is something we might not want to do*)
   - **T5.3.1** Write an example of searching with `esgf-client`
-  - **T5.3.2** Demonstrate searching in CoG
 - **T5.4** Demonstrate consistency of search between STAC implementation and Globus implementation.
+- **T5.5** Harvest: Demonstrate replication between STAC/ES and Globus Search implementations
+- **T5.6** Implement STAC API support for Metagrid
 
 KNMI Climate4impact
 
