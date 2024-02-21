@@ -86,6 +86,9 @@ Data can be transferred between ESGF nodes with excellent performance.
 
 ### *Tasks*
 - **T3.1** Install Globus at all European nodes.
+- **T3.2** Establish source sites for data - which Tier 1 and Tier 2? e.g. NCAR (tier 2) will have source data
+- **T3.3** Baseline testing of connectivity intercontinentally US - Europe, Australia - US, etc. ...
+- **T3.4** Document how sites are set-up
 
 ### *Acceptance criteria*
 
