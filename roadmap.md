@@ -56,6 +56,7 @@ Determine mandatory principles for working.
 - **T1.3** Write the versioning, tagging and release specification that all software will be committed and released under
 - **T1.4** Assign repository managers and write specifications for code-review and acceptance
 - **T1.5** Agree data model for search
+- **T1.6** Agree policy for data retractions where data is replicated
 
 ### *Acceptance criteria*
 
@@ -100,18 +101,20 @@ Data can be ingested into ESGF and made available for search.
 ### *Tasks*
 
 - **T4.1** Test current pipeline is compatible with expected CMIP7 data
-- **T4.2** Test and develop PID and DOI assignment
-- **T4.3** ES-DOC scanning and ingest (just need a link)
-- **T4.4** Errata service for updated data
+- **T4.2** Test and develop PID and DOI assignment (Nb. PID service is being redeveloped by DKRZ but will have the same API. No commitment to maintain the Citation Service!)
+- **T4.3** ES-DOC scanning and ingest (just need a link) (We need clarity about the planned technical solution for CMIP7)
+- **T4.4** Errata service for updated data (The errata service needs a collection of files that are being retracted as a consequence of a publisher delete or update operation)
 - **T4.5** Revoke data at a single site and over all sites
 - **T4.6** Publish a new version at a single site and over all sites
-- **T4.7** Adapt publishing pipeline to produce STAC catalogue records
+- **T4.7** Adapt publishing pipeline to produce STAC catalogue records and invoke STAC API for write operation to index
   - **T4.7.1** ES-DOC ingest (later - already a link in STAC record)
   - **T4.7.2** Update data
   - **T4.7.3** Revoke data
   - **T4.7.4** Publish new version
-- **T4.8** Ensure data quality (QC)
-- **T4.9** Replicas - how to manage in search index
+- **T4.8** Ensure data quality (QC) (currently there is no server-side QC. In the esg-publisher, can do a callout to PREPARE. esg map file checks the DRS but is Python 2)
+- **T4.9** Replicas - how to manage in search index (ESGF2 proposes simplifying the schema to have multiple endpoints in a single record rather than multiple records, one with each endpoint)
+- **T5.0** Modify publisher to accept vocabularies for DRS from a vocabulary service (Nb. This needs a commitment from an institution to write and maintain such a service!)
+- **T5.1** Develop a test suite for the publisher
 
 ### *Acceptance criteria*
 
