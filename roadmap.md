@@ -55,6 +55,7 @@ Determine mandatory principles for working.
 - **T1.2** Setup, adapt or collate the software repositories
 - **T1.3** Write the versioning, tagging and release specification that all software will be committed and released under
 - **T1.4** Assign repository managers and write specifications for code-review and acceptance
+- **T1.5** Agree data model for search
 
 ### *Acceptance criteria*
 
