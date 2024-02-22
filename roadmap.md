@@ -126,10 +126,21 @@ Data can be ingested into ESGF and made available for search.
 - **T4.8** Ensure data quality (QC) (currently there is no server-side QC. In the esg-publisher, can do a callout to PREPARE. esg map file checks the DRS but is Python 2)
 - **T4.9** Replicas - how to manage in search index (ESGF2 proposes simplifying the schema to have multiple endpoints in a single record rather than multiple records, one with each endpoint)
 - **T4.10** Modify publisher to accept vocabularies for DRS from a vocabulary service (Nb. This needs a commitment from an institution to write and maintain such a service!)
-- **T4.11** Develop a test suite for the publisher
+- **T4.11** Develop a test suite for the publisher (esg-publisher needs test suite)
 - **T4.12** CV service (maybe should be its own EPIC)
   - Prototype service
   - Production service and deployment
+- **T4.13** Flow integration (what is Flow?)
+  - Support CMIP7 publication steps via Flow
+  - Support E3SM publication via Flow
+  - Improve error reporting and handling for publication via Flow to provide users visibility
+  - Improve error reporting and troubleshooting info for publication via Flow to provide administrator tools
+- **T4.14** Create finer-grained authorization layer for permissions for publication
+- **T4.15** Push records to Globus Search
+- **T4.16** Push records to Elastic Search (STAC)
+- **T4.17** Implement workflows
+- **T4.18** Add QC checks to workflows
+- **T4.19** Open question for ElasticSearch (STAC) ingest: how is access control implemented?
 
 ### *Acceptance criteria*
 
@@ -151,8 +162,8 @@ A user can search the ESGF catalogue and get the correct result in a timely mann
   - For query
   - Ingest
   - Harvest/Replication
-
-KNMI Climate4impact
+- **T5.8** Migrate from solr infrastructure to Globus Search
+- **T5.9** Change the ESGF metadata structure to accommodate all three DoE sites in one index
 
 ### *Acceptance criteria*
 
@@ -163,7 +174,14 @@ A user can download the data they searched for, in a timely manner.
 
 ### *Tasks*
 
-- **T6.1**
+- **T6.1** Globus transfer available at dataset level
+- **T6.2** Globus transfers can go to any type of collection
+- **T6.3** Shopping cart transfers can go to any type of collection
+- **T6.4** Upgrade wget API to support Globus Search backend
+- **T6.5** Upgrade wget API to support Elasic Search backend (or STAC) ?
+- **T6.6** Enhance esgpull to support Globus Transfer
+- **T6.7** integrate esgpull with Metagrid
+- **T6.8** Retire wget?
 
 ### *Acceptance criteria*
 
