@@ -57,6 +57,14 @@ Determine mandatory principles for working.
 - **T1.4** Assign repository managers and write specifications for code-review and acceptance
 - **T1.5** Agree data model for search
 - **T1.6** Agree policy for data retractions where data is replicated
+- **T1.7** Agree on publication policy changes
+  - When in the publication process a version is cut
+    - Proposal for time of `esgpublish`
+  - Publisher changes to support versioning, likely schema changes are needed for this.
+- **T1.8** Agree on ownership for CV service
+- **T1.9** Agree on Citation Service management plan
+  - The Citation Service MVP must be funded
+
 
 ### *Acceptance criteria*
 
@@ -77,6 +85,7 @@ The latest version of the software can be easily installed by any ESGF partner.
 - **T2.4** Add S3 file system support.
   - This has been done for Kubernetes but needs to be added for the Ansible version of the installation.
   - We will also want to add better support for including a certificate in the file-server container for verifying the S3 connection.
+  - *ska*  this strikes me as very low priority.  Are any CMIP7 centers requiring S3 for data management?
 
 ### *Acceptance criteria*
 
@@ -89,7 +98,7 @@ Data can be transferred between ESGF nodes with excellent performance.
 - **T3.1** Install Globus at all European nodes.
 - **T3.2** Establish source sites for data - which Tier 1 and Tier 2? e.g. NCAR (tier 2) will have source data
 - **T3.3** Baseline testing of connectivity intercontinentally US - Europe, Australia - US, etc. ...
-- **T3.4** Document how sites are set-up
+- **T3.4** Document how sites are set-up, *eg.* open CMIP data collections/shares
 
 ### *Acceptance criteria*
 
@@ -100,7 +109,10 @@ Data can be ingested into ESGF and made available for search.
 
 ### *Tasks*
 
-- **T4.1** Test current pipeline is compatible with expected CMIP7 data
+- **T4.1** Test current pipeline is compatible with CMIP data
+  - Existing CMIP6 data
+  - CMIP6Plus data coming down the pipe
+  - Future CMIP7 data TBD (mid-2025 at earliest for test datasets)
 - **T4.2** Test and develop PID and DOI assignment (Nb. PID service is being redeveloped by DKRZ but will have the same API. No commitment to maintain the Citation Service!)
 - **T4.3** ES-DOC scanning and ingest (just need a link) (We need clarity about the planned technical solution for CMIP7)
 - **T4.4** Errata service for updated data (The errata service needs a collection of files that are being retracted as a consequence of a publisher delete or update operation)
@@ -113,8 +125,11 @@ Data can be ingested into ESGF and made available for search.
   - **T4.7.4** Publish new version
 - **T4.8** Ensure data quality (QC) (currently there is no server-side QC. In the esg-publisher, can do a callout to PREPARE. esg map file checks the DRS but is Python 2)
 - **T4.9** Replicas - how to manage in search index (ESGF2 proposes simplifying the schema to have multiple endpoints in a single record rather than multiple records, one with each endpoint)
-- **T5.0** Modify publisher to accept vocabularies for DRS from a vocabulary service (Nb. This needs a commitment from an institution to write and maintain such a service!)
-- **T5.1** Develop a test suite for the publisher
+- **T4.10** Modify publisher to accept vocabularies for DRS from a vocabulary service (Nb. This needs a commitment from an institution to write and maintain such a service!)
+- **T4.11** Develop a test suite for the publisher
+- **T4.12** CV service (maybe should be its own EPIC)
+  - Prototype service
+  - Production service and deployment
 
 ### *Acceptance criteria*
 
@@ -132,6 +147,10 @@ A user can search the ESGF catalogue and get the correct result in a timely mann
 - **T5.4** Demonstrate consistency of search between STAC implementation and Globus implementation.
 - **T5.5** Harvest: Demonstrate replication between STAC/ES and Globus Search implementations
 - **T5.6** Implement STAC API support for Metagrid
+- **T5.7** STAC API wrapper on Globus Search
+  - For query
+  - Ingest
+  - Harvest/Replication
 
 KNMI Climate4impact
 
@@ -161,5 +180,9 @@ Notebook can be run anywhere as it uses cloud storage
 - **T7.2** User can analyse the data in a Jupyter Notebook on JASMIN
 - **T7.3** User can analyse the data on an interactive analysis node on JASMIN
 - **T7.4** User can analyse the data on batch compute (LOTUS) on JASMIN
+- **T7.5** Enhanced searches on Metagrid (the presumptive GUI platform)
+  - Notification (periodic search)
+  - Complete variable/experiment set search
+- **T7.6** Enhance Metagrid with Jupyter Integration
 
 ### *Acceptance criteria*
