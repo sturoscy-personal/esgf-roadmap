@@ -136,21 +136,18 @@ Data can be ingested into ESGF and made available for search.
 - **T4.11** Develop a test suite for the publisher (esg-publisher needs test suite)
   - Deploy test suite on infrastructure
     - (note that the data inputs will exceed what can be obtained in a free Github Actions instance and require download time, so the test data needs to be hosted and run at a suitable site) 
-- **T4.12** CV service (maybe should be its own EPIC)
-  - Prototype service
-  - Production service and deployment
-- **T4.13** Flow integration (what is Flow?)
+- **T4.12** Flow integration (what is Flow?)
   - Support CMIP7 publication steps via Flow
   - Support E3SM publication requirements (via Flow)
     - *ska - note:* E3SM is funded separately and responsible for their own flow 
   - Improve error reporting and handling for publication via Flow to provide users visibility
   - Improve error reporting and troubleshooting info for publication via Flow to provide administrator tools
-- **T4.14** Create finer-grained authorization layer for permissions for publication
-- **T4.15** Push records to Globus Search
-- **T4.16** Push records to Elastic Search (STAC)
-- **T4.17** Implement workflows
-- **T4.18** Add QC checks to workflows
-- **T4.19** Open question for ElasticSearch (STAC) ingest: how is access control implemented?
+- **T4.13** Create finer-grained authorization layer for permissions for publication
+- **T4.14** Push records to Globus Search
+- **T4.15** Push records to Elastic Search (STAC)
+- **T4.16** Implement workflows
+- **T4.17** Add QC checks to workflows
+- **T4.18** Open question for ElasticSearch (STAC) ingest: how is access control implemented?
 
 ### *Acceptance criteria*
 
