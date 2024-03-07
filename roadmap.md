@@ -144,6 +144,10 @@ Data can be ingested into ESGF and made available for search.
 
 ### *Acceptance criteria*
 
+### *Data challenges*
+
+[DKRZ and CEDA STAC catalogue data challenge](data_challenges/DKRZ_STAC_index.md)
+
 ## E5 - Search
  
 ### *Vision* 
