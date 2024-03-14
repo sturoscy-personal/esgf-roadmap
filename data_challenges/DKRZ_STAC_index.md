@@ -48,3 +48,5 @@ the other institution already have?
 * User's can search for assets at either institution and get correct and consistent results.  
 * Some assets may not be present at both institutions.  For example, users should be able to search 
 for a CMIP asset at DKRZ but get a URI for the data at CEDA, as the asset does not exist at DKRZ.
+
+## Sprint 4: generate Kerchunk files from netCDF item references
