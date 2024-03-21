@@ -32,7 +32,7 @@ this *Initiative*?".
 We have identified different areas that we believe are important to deliver ESGF, and 
 could be the target for each *Initiative*.
 
-* Techincal Governance
+* Technical Governance
 * Installation
 * Bulk transfer
 * Publish
