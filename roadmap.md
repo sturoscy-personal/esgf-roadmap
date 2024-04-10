@@ -86,6 +86,7 @@ The latest version of the software can be easily installed by any ESGF partner.
   - This has been done for Kubernetes but needs to be added for the Ansible version of the installation.
   - We will also want to add better support for including a certificate in the file-server container for verifying the S3 connection.
   - *ska*  this strikes me as very low priority.  Are any CMIP7 centers requiring S3 for data management?
+    - comment SK: DKRZ will use S3 for CMIP7 data management in the future. no short term requirement, but mid term ..
 
 ### *Acceptance criteria*
 
