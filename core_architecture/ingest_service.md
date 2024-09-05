@@ -9,6 +9,7 @@ When a request is received, the ingest service:
 
 - Authenticates the requestor
 - Checks if the user is authorized to perform the type of publication action being requested
+- Performs a well-defined set of ESGF-specific schema/CV validation on the request's contents
 - Publishes an event to the ESGF event stream service for any valid requests
 
 ## Publication actions
@@ -17,11 +18,46 @@ The publication actions that need to be supported, along with the policy that sh
 
 ## Ingest service API
 
-API, error handling etc.
+The ingest Service must provide the STAC API's Transaction extension.
+
+Publication actions (see above) are mapped to actions supported by the STAC Transaction extension.
+_Need details here about how each of the publication actions is expressed as a STAC transaction. This looks like a non-trivial issue! (Especially the replica added/removed actions.)_
 
 ## Authentication
 
+Clients must authenticate with the auth service used by the Ingest Service.
+- The west Ingest Service uses Globus.
+- The east Ingest Service uses EGI Check-In.
+
+The result of successful authentication should be an OAuth 2.0 access token scoped for use with the
+Ingest Service. ESGF has no other requirements on this access token.
+
 ## Authorization
+
+Authorization policies for each publication action are defined by the ESGF Federation.
+_Need detail here about how these policies are defined and maintained. Is there a policy team or policy board? How are policy changes determined? How are policy changes communicated? Where is the source of truth for the current policy?_
+
+The Ingest Service must enforce the authorization policy for each publication action.
+
+Each publication action MUST have a corresponding authorization policy, and that policy MAY be distinct from the policy for other actions.
+
+The authorization policies MUST be implemented in the authorization services offered by the auth service used by the Ingest Service. (Globus offers a group service. EGI Check-In offers an attribute service.)
+
+Authorization policies may utilize the following information from the target of the request (the part of the STAC catalog being modified):
+- A specific Collection ID (aka ESGF Project)
+- A specific ESGF Data Node ID identified in a replica add or remove action _We need details here about how this is expressed in the STAC Transaction API request_
+- _Is anything else used as a basis for authorization decisions? Seems likely that publish/retract policies will need more than just the collection ID?_
+
+Authorization policies may utilize the following elements of the auth context of the STAC Transaction API request:
+- User identity (an OAuth `sub` or `preferred_username` value)
+- Specific attribute IDs provided by EGI Check-In (attributes possessed by the requester)
+- Specific group IDs provided by Globus (groups of which the requester is a member)
+
+## Request validation
+
+_Need details here about the specific schema and/or CV validation that must be performed. These details need to include what sources of truth we have for schemas and CVs, how they are communicated to the operations team, and how the operations team configures the ingest service to enforce them._
+
+_Note: This isn't just about publish actions! Replica added and replica removed actions also likely need some validation to make sure requests reference known data node IDs._
 
 ## Payload format
 
@@ -118,7 +154,6 @@ Example text file contents:
 - The consumers would then read the message and map this into the desired format
 - For CEDA I imagined this is where the STAC Generator would fit
 
-## Use cases/ideas for timelines beyond AR7 Fasttrack 
+## Use cases/ideas for timelines beyond AR7 Fasttrack
 
 ## Open questions
-
