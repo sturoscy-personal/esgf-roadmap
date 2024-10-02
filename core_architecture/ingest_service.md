@@ -60,6 +60,17 @@ _Need details here about the specific schema and/or CV validation that must be p
 
 _Note: This isn't just about publish actions! Replica added and replica removed actions also likely need some validation to make sure requests reference known data node IDs._
 
+## Availability, maintenance, and changes
+
+We expect there will occasionally be a need to take an ESGF ingest service offline for maintenance and that it will occasionally be necessary to make changes to the service API and/or behavior. Downtime and changes will have impacts on WCRP modeling centers. Ingest services should meet the following expectations for availability and change management.
+
+- All planned downtime and all API changes MUST be announced in advance.
+- API behavior changes that affect all authorized clients (changes to controlled vocabulary requirements, ESGF metadata requirements, or asset requirements) MUST be announced in advance.
+- Unplanned downtime lasting longer than 10 minutes SHOULD be announced as soon as the downtime is detected. Another announcement SHOULD follow when it is believed that service has been restored.
+- Each ingest service MUST provide an email list, to which all registered modeling centers are subscribed, where downtime announcements (both planned and unplanned) and API and API behavior change announcements are made.
+- During planned downtimes, the service API SHOULD provide a reasonable error response so clients can, in turn, display information about the downtime. Instances in which the service API cannot accept connections or cannot respond to requests at all SHOULD be extremely rare.
+- Each ingest service MUST provide a changelog accessible via web browser where all API and API behavior changes are recorded. The log should cover the entire service period of the ingest service.
+
 ## Payload format
 
 This section describes the payload of the event published to the stream.
