@@ -32,27 +32,30 @@ Clients must authenticate with the auth service used by the Ingest Service.
 The result of successful authentication should be an OAuth 2.0 access token scoped for use with the
 Ingest Service. ESGF has no other requirements on this access token.
 
+## Registration
+
+- Clients MUST register with an Ingest Service in order to use the service's API.
+- The registration process isn't required to be self-service, but it may be. If not, communication with the service operator will be necessary.
+- WCRP modeling team registration allows publishing, updating, and retraction actions for team members.
+- ESGF Data Node registration allows replica add and replicate remove actions for team members.
+- Each index service has a distinct registration process. There are no requirements about the mechanisms, interfaces, or processes for registration.
+
 ## Authorization
 
-Authorization policies for each publication action are defined by the ESGF Federation.
-
-_We need detail here about how these policies are defined and maintained. Is there a policy team or policy board? How are policy changes determined? How are policy changes communicated? Where is the source of truth for the current policy?_
-
-The Ingest Service must enforce the authorization policy for each publication action.
-
-Each publication action MUST have a corresponding authorization policy, and that policy MAY be distinct from the policy for other actions.
-
-The authorization policies MUST be implemented in the authorization services offered by the auth service used by the Ingest Service. (Globus offers a group service. EGI Check-In offers an attribute service.)
+Each ESGF Ingest Service MUST define and enforce an authorization policy for each publication action. These authorization policies MUST use the authorization services offered by the auth service used by the Ingest Service. (Globus offers a group service. EGI Check-In offers an attribute service.)
 
 Authorization policies may utilize the following information from the target of the request (the part of the STAC catalog being modified):
-- A specific Collection ID (aka ESGF Project)
-- A specific ESGF Data Node ID identified in a replica add or remove action _We need details here about how this is expressed in the STAC Transaction API request. See corresponding note in the "Ingest service API" section._
-- _Is anything else about the request itself (not who is making the request) used as a basis for authorization decisions? Seems likely that publish/retract policies will need more than just the collection ID?_
+- A specific Collection ID (aka ESGF Project, for publish, update, and retract actions)
+- A specific Institution ID (for publish, update, and retract actions)
+- A specific ESGF Data Node ID identified (for replica add or remove actions)
+- Q: Is anything else about the request itself (not who is making the request) used as a basis for authorization decisions?
 
 Authorization policies may utilize the following elements of the auth context of the STAC Transaction API request:
 - User identity (an OAuth `sub` or `preferred_username` value)
 - Specific attribute IDs provided by EGI Check-In (attributes possessed by the requester)
 - Specific group IDs provided by Globus (groups of which the requester is a member)
+
+The ESGF Ingest Service SHOULD maintain a history of changes to its authorization policies that can enable audits of specific transactions.
 
 ## Request validation
 
