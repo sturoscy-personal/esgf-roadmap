@@ -21,7 +21,7 @@ The publication actions that need to be supported, along with the policy that sh
 The ingest Service must provide the STAC API's Transaction extension.
 
 Publication actions (see above) are mapped to actions supported by the STAC Transaction extension.
-_Need details here about how each of the publication actions is expressed as a STAC transaction. This looks like a non-trivial issue! (Especially the replica added/removed actions.)_
+_We need details here about how each of the publication actions is expressed as a STAC transaction. This looks like a non-trivial issue! (Especially the replica added/removed actions.)_
 
 ## Authentication
 
@@ -35,7 +35,8 @@ Ingest Service. ESGF has no other requirements on this access token.
 ## Authorization
 
 Authorization policies for each publication action are defined by the ESGF Federation.
-_Need detail here about how these policies are defined and maintained. Is there a policy team or policy board? How are policy changes determined? How are policy changes communicated? Where is the source of truth for the current policy?_
+
+_We need detail here about how these policies are defined and maintained. Is there a policy team or policy board? How are policy changes determined? How are policy changes communicated? Where is the source of truth for the current policy?_
 
 The Ingest Service must enforce the authorization policy for each publication action.
 
@@ -45,8 +46,8 @@ The authorization policies MUST be implemented in the authorization services off
 
 Authorization policies may utilize the following information from the target of the request (the part of the STAC catalog being modified):
 - A specific Collection ID (aka ESGF Project)
-- A specific ESGF Data Node ID identified in a replica add or remove action _We need details here about how this is expressed in the STAC Transaction API request_
-- _Is anything else used as a basis for authorization decisions? Seems likely that publish/retract policies will need more than just the collection ID?_
+- A specific ESGF Data Node ID identified in a replica add or remove action _We need details here about how this is expressed in the STAC Transaction API request. See corresponding note in the "Ingest service API" section._
+- _Is anything else about the request itself (not who is making the request) used as a basis for authorization decisions? Seems likely that publish/retract policies will need more than just the collection ID?_
 
 Authorization policies may utilize the following elements of the auth context of the STAC Transaction API request:
 - User identity (an OAuth `sub` or `preferred_username` value)
