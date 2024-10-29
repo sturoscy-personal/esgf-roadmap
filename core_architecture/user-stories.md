@@ -55,9 +55,9 @@ the event stream can now update its local index with the new replica information
 **Option 1**: direct connection to ESGF Replicator Webapp
 
 Ashley is a researcher who uses a national high performance computer NHPC to perform his analysis and wishes to do some research with 
-ESGF data that isn't currently hosted at NHPC. Ashley signs into meta grid, searches for relevant datasets and adds them to his cart.  
+ESGF data that isn't currently hosted at NHPC. Ashley signs into meta grid, searches for relevant datasets and adds them to his cart. 
 He selects to issue download request for these datasets to NHPC which redirects him to the request page of NHPC's ESGF replicator Webapp 
-(logging in if required).  He submitted the request and awaits action from the data manager at NHPC.
+(logging in if required). He submitted the request and awaits action from the data manager at NHPC.
 
 Alternatively, he refines a search to datasets of interest and issues a query based replication request via a button at the top of the 
 search results page
@@ -65,9 +65,9 @@ search results page
 **Option 2**: manual connection to ESGF Replicator Webapp
 
 Ashley is a researcher who uses a national high performance computer NHPC to perform his analysis and wishes to do some research with 
-ESGF data that isn't currently hosted at NHPC. Ashley signs into meta grid, searches for relevant datasets and adds them to his cart.  
+ESGF data that isn't currently hosted at NHPC. Ashley signs into meta grid, searches for relevant datasets and adds them to his cart. 
 He selects to download a replication request file which he then uploads to the request page of NHPC's ESGF replicator Web app (logging 
-in if required).  He submitted the request and awaits action from the data manager at NHPC.
+in if required). He submitted the request and awaits action from the data manager at NHPC.
 
 Alternatively, he refines a search to datasets of interest and downloads a query based replication request via a button at the top of 
 the search results page
@@ -75,7 +75,7 @@ the search results page
 ### Updating replicator replication policy from requests
 
 Ashley is a Data Manager at a national supercomputing center.  He is responsible for moderating data replication requests that are received
-on the ESGF Replicator Webapp.  Ashley logs into the webapp to make a decision whether to approve or decline each request based on if the request 
+on the ESGF Replicator Webapp. Ashley logs into the webapp to make a decision whether to approve or decline each request based on if the request 
 came from someone who is a registered user at the center, the request size (bytes and #files) is within policy, (other TBC).  Optionally, he 
 could contact the user for clarification (out of the webapp) using contact details displayed in the webapp.  The ESGF Replicator Webapp will 
 send a message to the user submitting the request notifying them of the outcome.  For approvals, the ESGF webapp will connect to the ESGF Replicator Service API and add the requested replication policy.
@@ -95,9 +95,9 @@ but will need to take proper summations over land regions of the globe. She buil
 
 ## Dataset Immigration
 
-The Financially Optimistic Organization (FOO) joins the ESGF federation as a data node and publishes 100 datasets.  The operation of 
-their node is funded using project funding.  At the end of the project, money dries up and FOO places a message on the ESGF slack group 
-advising of their intention to leave the federation.  Boston Atmospheric Repository (BAR) agree to the immigration request for their 
-datasets.  BAR replicates all FOO's datasets.  FOO issues a change of ownership publication event for all of their datasets to BAR, 
-which BAR accepts.  Finally, FOO issues remove replica message, shuts down its data node and requests to leave the federation.
+The Financially Optimistic Organization (FOO) joins the ESGF federation as a data node and publishes 100 datasets. The operation of 
+their node is funded using project funding. At the end of the project, money dries up and FOO places a message on the ESGF slack group 
+advising of their intention to leave the federation. Boston Atmospheric Repository (BAR) agree to the immigration request for their 
+datasets. BAR replicates all FOO's datasets. FOO issues a change of ownership publication event for all of their datasets to BAR, 
+which BAR accepts. Finally, FOO issues remove replica message, shuts down its data node and requests to leave the federation.
 
