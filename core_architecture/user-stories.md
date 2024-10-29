@@ -50,6 +50,36 @@ new location availability for the dataset. Because Luka is authorized to add his
 node as a new location for datasets, the **STAC Transaction API** creates a “replica add” event on the **ESGF-wide event stream** with the new replica information. Each ESGF index that subscribes to
 the event stream can now update its local index with the new replica information.
 
+### Replication request for a Data Node
+
+**Option 1**: direct connection to ESGF Replicator Webapp
+
+Ashley is a researcher who uses a national high performance computer NHPC to perform his analysis and wishes to do some research with 
+ESGF data that isn't currently hosted at NHPC. Ashley signs into meta grid, searches for relevant datasets and adds them to his cart.  
+He selects to issue download request for these datasets to NHPC which redirects him to the request page of NHPC's ESGF replicator Webapp 
+(logging in if required).  He submitted the request and awaits action from the data manager at NHPC.
+
+Alternatively, he refines a search to datasets of interest and issues a query based replication request via a button at the top of the 
+search results page
+
+**Option 2**: manual connection to ESGF Replicator Webapp
+
+Ashley is a researcher who uses a national high performance computer NHPC to perform his analysis and wishes to do some research with 
+ESGF data that isn't currently hosted at NHPC. Ashley signs into meta grid, searches for relevant datasets and adds them to his cart.  
+He selects to download a replication request file which he then uploads to the request page of NHPC's ESGF replicator Web app (logging 
+in if required).  He submitted the request and awaits action from the data manager at NHPC.
+
+Alternatively, he refines a search to datasets of interest and downloads a query based replication request via a button at the top of 
+the search results page
+
+### Updating replicator replication policy from requests
+
+Ashley is a Data Manager at a national supercomputing center.  He is responsible for moderating data replication requests that are received
+on the ESGF Replicator Webapp.  Ashley logs into the webapp to make a decision whether to approve or decline each request based on if the request 
+came from someone who is a registered user at the center, the request size (bytes and #files) is within policy, (other TBC).  Optionally, he 
+could contact the user for clarification (out of the webapp) using contact details displayed in the webapp.  The ESGF Replicator Webapp will 
+send a message to the user submitting the request notifying them of the outcome.  For approvals, the ESGF webapp will connect to the ESGF Replicator Service API and add the requested replication policy.
+
 ## Registering an ESGF Data Node
 
 Xavier is an operator of an ESGF data node at a national supercomputing center. Because his center is located in the United States, he has decided to use the **ESGF-West STAC Catalogue** to report new replicas available at his data node. The **ESGF-West STAC Catalogue**'s ESGF IAM service is Globus. When Xavier is ready to start creating replicas, he creates a Globus group and adds his Replicator's application ID to the group. He contacts the operators of the **ESGF-West STAC Catalogue** and gives them details about his data node and the Globus group he's using. The Catalogue administrators configure the **ESGF-West STAC Catalogue**'s **STAC Transaction API** to authorize members of the group to perform replica add and replica remove actions for any ESGF dataset. Now, when Xavier's ESGF Replicator creates or removes replicas on his data node, it can update the corresponding entries in the **ESGF-West STAC Catalogue** with the changed replica information.
@@ -62,3 +92,12 @@ experiments were part of CMIP7, the search prioritizes the commonly accessed ‘
 experiment so it was easy to hone in on the results she needs. The search suggests that she might
 also be interested in the model’s cell areas and land fractions, which she had not considered
 but will need to take proper summations over land regions of the globe. She builds a data cart in Metagrid and submits a transfer request with Globus to copy the files to her local machine where she has an environment with custom code ready to perform the analysis.
+
+## Dataset Immigration
+
+The Financially Optimistic Organization (FOO) joins the ESGF federation as a data node and publishes 100 datasets.  The operation of 
+their node is funded using project funding.  At the end of the project, money dries up and FOO places a message on the ESGF slack group 
+advising of their intention to leave the federation.  Boston Atmospheric Repository (BAR) agree to the immigration request for their 
+datasets.  BAR replicates all FOO's datasets.  FOO issues a change of ownership publication event for all of their datasets to BAR, 
+which BAR accepts.  Finally, FOO issues remove replica message, shuts down its data node and requests to leave the federation.
+
