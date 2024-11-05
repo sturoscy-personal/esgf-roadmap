@@ -41,6 +41,15 @@ node that subscribes to the event stream can now process the retraction locally 
 replica of the dataset. Furthermore, any other subscribers to the event stream can use this
 retraction information to inform their research.
 
+## 4b. Reverse a Dataset Retraction
+
+Amanda is a member of a climate modeling team at a federal agency that has produced and
+published some of the CMIP7 data. While executing a series of retractions for datasets published by the team, Amanda accidentally retracts ten datasets that shouldn't have been retracted. These datasets have been replicated to at least three other Data Nodes and the replica information is in the datasets' catalogue entries. Amanda needs to reverse the retractions for each of the ten datasets such that all of the dataset metadata and replica information is intact, as if the retraction had never occurred. Amanda runs the ESGF Publisher code and specifies the IDs of the datasets
+to be un-retracted. The Publisher authenticates Amanda with the **ESGF-West IAM** service and
+pushes an un-retraction request to the **ESGF-West STAC Catalogue** using its **STAC Transaction API**. Because Amanda has been
+authorized to initiate retractions for this project, the **STAC Transaction API** adds un-retraction events to the
+**ESGF-wide event stream** with the dataset IDs and explanations.
+
 ## 5. Replicating Datasets to a Data Node
 
 Luka is an operator of an ESGF data node at a national supercomputing center. He is
@@ -89,22 +98,46 @@ Replicator Service API and add the requested replication policy.
 
 Xavier is an operator of an ESGF data node at a national supercomputing center. Because his center is located in the United States, he has decided to use the **ESGF-West STAC Catalogue** to report new replicas available at his data node. The **ESGF-West STAC Catalogue**'s ESGF IAM service is Globus. When Xavier is ready to start creating replicas, he creates a Globus group and adds his Replicator's application ID to the group. He contacts the operators of the **ESGF-West STAC Catalogue** and gives them details about his data node and the Globus group he's using. The Catalogue administrators configure the **ESGF-West STAC Catalogue**'s **STAC Transaction API** to authorize members of the group to perform replica add and replica remove actions for any ESGF dataset. Now, when Xavier's ESGF Replicator creates or removes replicas on his data node, it can update the corresponding entries in the **ESGF-West STAC Catalogue** with the changed replica information.
 
-## 9. Discover and Download Relevant ESGF Datasets (metagrid example)
+## 9a. Discover and Download Relevant ESGF Datasets (metagrid+globus example)
 
 Lisa, a graduate student in ecology, has a hypothesis she wants to test involving precipitation
-controls on extremes of gross primary productivity. She logs into an ESGF Metagrid web application and searches for these variables from the E3SM model. The Metagrid application uses the **ESGF-West STAC Catalog** to fulfill search requests. While Lisa did not realize that so many
+controls on extremes of gross primary productivity. She visits an ESGF Metagrid web application and searches for these variables from the E3SM model. The Metagrid application uses the **ESGF-West STAC Catalog** to fulfill search requests. While Lisa did not realize that so many
 experiments were part of CMIP7, the search prioritizes the commonly accessed ‘historical’
 experiment so it was easy to hone in on the results she needs. The search suggests that she might
 also be interested in the model’s cell areas and land fractions, which she had not considered
-but will need to take proper summations over land regions of the globe. She builds a data cart in Metagrid, logins, and submits a transfer request with Globus to copy the files to her local machine where she has an environment with custom code ready to perform the analysis.
+but will need to take proper summations over land regions of the globe. She builds a data cart in Metagrid, then logs in with Globus and submits a Globus transfer request to copy the files to her local machine where she has an environment with custom code ready to perform the analysis.
 
-## 10. Dataset Immigration
+## 9b. Discover and Download Relevant ESGF Datasets (metagrid wget example)
+
+We need to fill in this story.
+
+## 9c. Discover and Download Relevant ESGF Datasets (intake-esgf example)
+
+We need to fill in this story.
+
+## 9d. Discover and Use Relevant ESGF Datasets with a "Chunked" Access Application
+
+We need to fill in this story.
+
+## 9e. Discover and Use Relevant ESGF Datasets with "Active Storage" aka Server-side Compute
+
+We need to fill in this story.
+
+## 10. Inter-organizational Dataset Migration
 
 The Financially Optimistic Organization (FOO) joins the ESGF federation as a data node and publishes 100 datasets. The operation of
 their node is funded using project funding. At the end of the project, money dries up and FOO places a message on the ESGF slack group
-advising of their intention to leave the federation. Boston Atmospheric Repository (BAR) agree to the immigration request for their
+advising of their intention to leave the federation. Boston Atmospheric Repository (BAR) agree to migrate their
 datasets. BAR replicates all FOO's datasets. FOO issues a change of ownership publication event for all of their datasets to BAR,
 which BAR accepts. Finally, FOO issues remove replica message, shuts down its data node and requests to leave the federation.
+
+## 10b. Intra-organizational Dataset Migration
+
+Boston Atmospheric Repository (BAR) has 10,000 ESGF datasets that they previously published from their local ESGF Data Node. Now, the storage system where those datasets live is being decommissioned. They need to move the datasets to the replacement storage system and update the ESGF catalogues to reflect their new location. The BAR Data Node operators copy the datasets to the new storage system. Then, for each dataset, they issue a Replica Add action with the new location information and a Replica Remove action with the old location information. Ideally, they use an ESGF migration tool to automate the data movement and Replica Add/Remove actions.
+
+## 10c. Register a New Aggregated Access Method for a Dataset
+
+Boston Atmospheric Repository (BAR) has 5,000 ESGF datasets that they previously published from their local ESGF Data Node. Their local Research Software Engineering team has developed a new web application that addresses whole (aka "atomic") datasets on their Data Node. (For a given dataset, the web application has a single URL per dataset, as opposed to a separate URL for each file in the dataset.) Now, for all of the datasets present on their Data Node, they want to add the corresponding aggregate URL to the dataset's catalogue entry so researchers can easily access the dataset in their web application. Ideally using an ESGF replica management tool, the Data Node operators execute a series of Replica Add actions against the ESGF STAC Catalogue, one per dataset on the Data Node, supplying the aggregate URL for the dataset as the asset URL and specifying their web application's name as the asset type. Now, when researchers find any of these datasets in the ESGF STAC Catalogue, they see the asset's description and URL and can access the dataset in the web application if desired.
 
 ## 11. Orientation to ESGF-NG, aka Documentation
 
@@ -141,3 +174,7 @@ uses the ESGF Ansible definition to download and deploy containers, registers hi
 ## 13. Registering an ESGF Community Service that Uses the ESGF Event Stream
 
 Judith is building a new ESGF Community Service that will subscribe to events on the ESGF Event Stream and act on them. After consulting the ESGF documentation (use case 11), Judith contacts the operators of the ESGF Event Stream and provides a statement of intent for her service. The operators review her request and agree that the service is a legitimate use of the Event Stream. The operators issue credentials that Judith can use in her Community Service to subscribe to topics in the Event Stream and consume events.
+
+## 14. Generate a Complex Citation Object for an Arbitrary Set of ESGF Datasets
+
+Gavin is one of the authors of an IPCC paper and is using 125 ESGF datasets to generate a figure in the paper. Gavin wants to cite the datasets so the modeling center that produced them accrues credit for the contribution. The paper's publisher limits the number of datasets that may be listed in the References section to 40, and listing the datasets in supplementary documentation renders the references unindexed and non-machine-actionable. Gavin wants to be able to generate a Complex Citation Object (CCO) for the 125 datasets so it appears in the paper as a single reference, yet all 125 datasets accrue citation credit. Gavin used intake-esgf to discover and download the datasets. Ideally, Gavin would like intake-esgf to offer an option that generates and registers a CCO that covers all of the datasets included in a download request so he can include it in the References section of his paper.
