@@ -81,7 +81,7 @@ could contact the user for clarification (outside of the webapp) using contact d
 send a message to the user submitting the request notifying them of the outcome.  For approvals, the ESGF webapp will connect to the ESGF 
 Replicator Service API and add the requested replication policy.
 
-## Registering an ESGF Data Node
+## Registering an ESGF Data Node for replication
 
 Xavier is an operator of an ESGF data node at a national supercomputing center. Because his center is located in the United States, he has decided to use the **ESGF-West STAC Catalogue** to report new replicas available at his data node. The **ESGF-West STAC Catalogue**'s ESGF IAM service is Globus. When Xavier is ready to start creating replicas, he creates a Globus group and adds his Replicator's application ID to the group. He contacts the operators of the **ESGF-West STAC Catalogue** and gives them details about his data node and the Globus group he's using. The Catalogue administrators configure the **ESGF-West STAC Catalogue**'s **STAC Transaction API** to authorize members of the group to perform replica add and replica remove actions for any ESGF dataset. Now, when Xavier's ESGF Replicator creates or removes replicas on his data node, it can update the corresponding entries in the **ESGF-West STAC Catalogue** with the changed replica information.
 
