@@ -72,4 +72,4 @@ values_changed:
 
 ### To-do Items
 - [] CEDA to investigate fixing lower-case `project` property value `cmip6` to `CMIP6`
-- [] CEDA to investigate fixing `alternate:name` property to `alternate`
+- [] CEDA to investigate fixing `alternate` property to `alternate:name`
