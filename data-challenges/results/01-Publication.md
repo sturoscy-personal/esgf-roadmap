@@ -7,14 +7,14 @@ As decided in the face-to-face meeting on November 2024, the first round of Data
 
 ### What is needed to run Data Challenge 1 Round 1?
 * [500 E3SM datasets for publication](https://g-52ba3.fd635.8443.data.globus.org/users/lukasz/esgf2/dc_west_metadata_500.tgz)
-* esg-publisher
+* [esg-publisher](https://github.com/ESGF/esg-publisher/tree/esgf-ng-v5.4a)
   * Globus Native App client_id
-* Running STAC Transaction API
-  * Globus client ID and secret with the `view_my_groups_and_memberships_scope_uuid`
+* [Running STAC Transaction API](https://github.com/esgf2-us/stac-transaction-api/tree/west-playground)
+  * Globus client ID and secret with the [`view_my_groups_and_memberships_scope_uuid`](https://docs.globus.org/guides/overviews/clients-scopes-and-consents/)
  * Apache Kafka running with appropriately created topics
-  * Local Kafka cluster with docker compose
+  * Local Kafka cluster with [docker compose](https://github.com/esgf2-us/stac-transaction-api/blob/west-playground/compose.yaml)
   * Confluent Cloud Kafka cluster with SASL authentication
- * Kafka consumer subscribed to appropriate topics in the queue
+ * [Kafka consumer](https://github.com/esgf2-us/west-consumer) subscribed to appropriate topics in the queue
    * Globus Search index with appropriate writer permissions
  * [esgf-validate](https://github.com/esgf2-us/esgf-validate) for validating east and west indices are synced
 
