@@ -11,12 +11,12 @@ As decided in the face-to-face meeting on November 2024, the first round of Data
   * Globus Native App client_id
 * [Running STAC Transaction API](https://github.com/esgf2-us/stac-transaction-api/tree/west-playground)
   * Globus client ID and secret with the [`view_my_groups_and_memberships_scope_uuid`](https://docs.globus.org/guides/overviews/clients-scopes-and-consents/)
- * Apache Kafka running with appropriately created topics
+* Apache Kafka running with appropriately created topics
   * Local Kafka cluster with [docker compose](https://github.com/esgf2-us/stac-transaction-api/blob/west-playground/compose.yaml)
   * Confluent Cloud Kafka cluster with SASL authentication
- * [Kafka consumer](https://github.com/esgf2-us/west-consumer) subscribed to appropriate topics in the queue
-   * Globus Search index with appropriate writer permissions
- * [esgf-validate](https://github.com/esgf2-us/esgf-validate) for validating east and west indices are synced
+* [Kafka consumer](https://github.com/esgf2-us/west-consumer) subscribed to appropriate topics in the queue
+  * Globus Search index with appropriate writer permissions
+* [esgf-validate](https://github.com/esgf2-us/esgf-validate) for validating east and west indices are synced
 
 ### How is Data Challenge 1 Round 1 run?
 * esg-publisher uses the JSON publication records from the E3SM datasets mentioned above and sends a POST event to the STAC Transaction API
