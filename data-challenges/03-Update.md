@@ -2,6 +2,18 @@
 
 **Purpose:** Confirm that when an update event occurs in either the East or the West ESGF Catalog, the corresponding entry in both East and West Catalogs shows the expected update. This is an end-to-end test of the entire ESGF-NG core architecture.
 
+## Resources for Data Challenge
+### Discovery Endpoints
+* East - https://api.stac.esgf.ceda.ac.uk
+* West - https://data-challenge-04-discovery.api.stac.esgf-west.org
+
+### Transaction Endpoint
+* https://stac-transaction-api.esgf-west.org
+
+### Kafka Topics
+* Transactions - esgf2.data-challenges.04.transactions
+* Errors - esgf2.data-challenges.04.errors
+
 ## External Dependencies
 
 * All rounds: ESGF Publisher that can be installed in test environment and that can be configured to publish to either the East or West STAC Catalog.
