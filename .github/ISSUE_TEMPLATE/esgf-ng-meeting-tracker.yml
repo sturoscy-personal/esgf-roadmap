@@ -1,0 +1,209 @@
+name: "🌍 ESGF-NG Meeting Tracker"
+description: "Track ESGF-NG architecture, load testing, and integration progress."
+title: "[Meeting YYYY-MM-DD] ESGF-NG Tracker"
+labels: ["meeting", "ESGF-NG", "architecture"]
+assignees:
+  - sturoscy
+  - lukasz
+  - rhys
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🧭 ESGF-NG Meeting Tracker
+        Use this issue to summarize current progress, blockers, and next steps for ESGF-NG load testing, schema updates, and integrations.
+
+  - type: input
+    id: meeting_date
+    attributes:
+      label: "📅 Meeting Date"
+      description: "Enter the date of this meeting (YYYY-MM-DD)"
+      placeholder: "2025-10-29"
+    validations:
+      required: true
+
+  - type: input
+    id: facilitator
+    attributes:
+      label: "👤 Facilitator"
+      description: "Who led this session?"
+      placeholder: "Steve Turoscy"
+
+  - type: input
+    id: meeting_link
+    attributes:
+      label: "🔗 Meeting Reference / Notes"
+      description: "Link to meeting notes, agenda, or recording (if available)."
+      placeholder: "https://example.com/agenda"
+
+  - type: dropdown
+    id: focus_area
+    attributes:
+      label: "🎯 Primary Focus Area"
+      options:
+        - Load Testing
+        - Publisher Integration
+        - Schema & Validation
+        - Extensions & Prefixes
+        - REF Team Coordination
+        - Documentation & Paper Draft
+        - Other
+      default: 0
+
+  - type: textarea
+    id: load_testing
+    attributes:
+      label: "🚀 ESGF-NG Load Testing Status"
+      description: "Summarize 48-hour test status, datasets, and outcomes."
+      value: |
+        **Scope:**
+        - Authentication + authorization enabled
+        - Validation enabled
+        - Input data: CMIP6 + Obs4MIPs
+        - Target: ≥12 transactions/min over 48 hours
+
+        **Dependencies:**
+        - [CMIP6 Extension v3.0.0](https://github.com/stac-extensions/cmip6)
+        - [STAC Extensions Repo](https://github.com/ESGF/stac-transaction-api/tree/main/stac-extensions)
+        - [Transaction API PR #32](https://github.com/ESGF/stac-transaction-api/pull/32)
+
+        **Tasks:**
+        - [ ] Publish schemas to GitHub Pages
+        - [ ] Redeploy Transaction API with updated schema refs
+        - [ ] Run 48-hour load test
+        - [ ] Collect metrics (throughput, latency, errors)
+        - [ ] Summarize results
+    validations:
+      required: false
+
+  - type: textarea
+    id: publisher_integration
+    attributes:
+      label: "🧩 Publisher Integration Testing"
+      description: "Track setup and outcomes for Publisher-side testing."
+      value: |
+        Reference: [esgf-roadmap#92](https://github.com/ESGF/esgf-roadmap/issues/92)
+
+        **Tasks:**
+        - [ ] Create test infrastructure for Publisher team (Sasha)
+        - [ ] Deploy East & West instances for auth testing
+        - [ ] Provide local Docker setup instructions
+        - [ ] Validate publisher → STAC end-to-end flow
+    validations:
+      required: false
+
+  - type: textarea
+    id: schema_validation
+    attributes:
+      label: "📜 Schema & Validation Consistency"
+      description: "Progress on JSON schema, checksum validation, and documentation."
+      value: |
+        References:
+        - [Schema Docs #83](https://github.com/ESGF/esgf-roadmap/issues/83)
+        - [Checksums #84](https://github.com/ESGF/esgf-roadmap/issues/84)
+
+        **Tasks:**
+        - [ ] Finalize JSON Schema documentation
+        - [ ] Validate CMIP6 and Obs4MIPs schema references
+        - [ ] Verify checksum generation with esgmapfile
+        - [ ] Confirm STAC best-practice alignment
+    validations:
+      required: false
+
+  - type: textarea
+    id: field_prefixes
+    attributes:
+      label: "🔠 Field Conventions & Extensions"
+      description: "Status of field prefixes, free-text extensions, and schema enforcement."
+      value: |
+        Reference: [Field Prefix Convention #82](https://github.com/ESGF/esgf-roadmap/issues/82)
+
+        **Tasks:**
+        - [ ] Document project-specific field prefix conventions
+        - [ ] Update schema to enforce prefixes
+        - [ ] Notify publishers of validation changes
+        - [ ] Enable free-text extension for West catalog
+    validations:
+      required: false
+
+  - type: textarea
+    id: ref_coordination
+    attributes:
+      label: "🔗 REF Integration & Data Challenge Coordination"
+      description: "Track coordination and test runs with REF team."
+      value: |
+        Reference: [REF Integration #93](https://github.com/ESGF/esgf-roadmap/issues/93)
+
+        **Tasks:**
+        - [ ] Onboard REF team members to event stream
+        - [ ] Execute additional data challenge runs
+        - [ ] Document REF-published data
+    validations:
+      required: false
+
+  - type: textarea
+    id: external_dependencies
+    attributes:
+      label: "🌐 Coordination & External Dependencies"
+      description: "Track related CEDA, ESA, Globus, and CMIP7 dependencies."
+      value: |
+        **External Partners:**
+        - [ ] CEDA: Free-text extension verified (East)
+        - [ ] ESA: STAC/Zarr best-practice doc shared
+        - [ ] Globus Ops: Production deployment planning
+        - [ ] CMIP7: Check ESGVOC CVs and announcements
+    validations:
+      required: false
+
+  - type: textarea
+    id: reminders
+    attributes:
+      label: "🧱 Ongoing Projects & Reminders"
+      value: |
+        - [ ] ESGF Replicator planning — (Steve)
+        - [ ] ESGF-NG architecture docs refactor
+        - [ ] ESGF-NG paper draft (Lee to invite)
+        - [ ] PID Service downstream Kafka client (Katharina)
+        - [ ] ESGPull integration notes
+    validations:
+      required: false
+
+  - type: textarea
+    id: discussion
+    attributes:
+      label: "💬 Discussion & Open Questions"
+      description: "List any questions, blockers, or discussion items from this meeting."
+      placeholder: "- [ ] Example: Confirm global vs. equatorial bounding box for CMIP horizontal data"
+
+  - type: textarea
+    id: next_steps
+    attributes:
+      label: "✅ Next Steps / Assignments"
+      description: "Summarize upcoming actions and responsible parties."
+      value: |
+        | Task | Owner | Due |
+        |------|--------|-----|
+        | Publish STAC schemas | Lukasz | TBD |
+        | Redeploy Transaction API | Rhys | TBD |
+        | Publisher test infra setup | Sasha | TBD |
+        | Field prefix doc update | Steve | TBD |
+    validations:
+      required: false
+
+  - type: input
+    id: next_review
+    attributes:
+      label: "🗓️ Next Review Date"
+      description: "When should progress be reviewed again?"
+      placeholder: "2025-11-05"
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        **Suggested Labels:**  
+        `load-testing`, `schema`, `deployment`, `publisher`, `validation`, `documentation`, `integration`, `external`, `urgent`, `reminder`
+
+        _Generated using the ESGF-NG meeting tracker template._
+
