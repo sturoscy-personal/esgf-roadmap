@@ -87,8 +87,8 @@ jobs:
           body: ${{ matrix.body }}
           labels: ${{ matrix.labels }}
 
-      - name: Add issue to ESGF-core-architecture project board
-        uses: github/add-to-project@v1.1.0
-        with:
-          project-url: https://github.com/orgs/ESGF/projects/11
-          item-id: ${{ steps.create_issue.outputs.issue_node_id }}
+      # - name: Add issue to ESGF-core-architecture project board
+      #   uses: github/add-to-project@v1.1.0
+      #   with:
+      #     project-url: https://github.com/orgs/ESGF/projects/11
+      #     item-id: ${{ steps.create_issue.outputs.issue_node_id }}
