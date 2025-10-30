@@ -15,7 +15,7 @@ jobs:
         uses: peter-evans/create-issue-from-file@v4
         with:
           # Repository where the issues should be created by default
-          repository: ESGF/esgf-roadmap
+          repository: sturoscy-personal/esgf-roadmap
           content-filepath: .github/workflows/esgf-ng-issues.md
           title: "ESGF-NG Agenda Issue: Batch Creation Placeholder"
           # This placeholder will be ignored; real issues are created below
@@ -33,50 +33,50 @@ jobs:
               and validation enabled. Record throughput, latency, and error rates.
               Target: minimum 12 transactions/min sustained.
             labels: load-test,infrastructure
-            repo: ESGF/esgf-roadmap
+            repo: sturoscy-personal/esgf-roadmap
 
           - title: "Publish CMIP6 + obs4MIPs Schemas to GitHub Pages and Redeploy Transaction API"
             body: |
               Publish updated schemas under `/stac-extensions` on GitHub Pages.
               Redeploy Transaction API and verify schema integration.
             labels: schema,docs,release
-            repo: ESGF/esgf-roadmap
+            repo: sturoscy-personal/esgf-roadmap
 
           - title: "Create Publisher Integration Testing Infrastructure"
             body: |
               Stand up test environment accessible to publisher team (e.g., Sasha).
               Support both East and West endpoints.
-              Reference https://github.com/ESGF/esgf-roadmap/issues/92.
+              Reference https://github.com/sturoscy-personal/esgf-roadmap/issues/92.
             labels: publisher,testing,urgent
-            repo: ESGF/esgf-roadmap
+            repo: sturoscy-personal/esgf-roadmap
 
           - title: "Add Free-Text Extension Support for West Catalog"
             body: |
               Mirror CEDA’s free-text extension currently supported in the East catalog.
               Validate functionality within the STAC FastAPI implementation.
             labels: feature,metadata
-            repo: ESGF/esgf-roadmap
+            repo: sturoscy-personal/esgf-roadmap
 
           - title: "Need clarity for meanings of fields in reference files within assets"
             body: |
               Capture guidance from STAC community on JSON schema design and referencing.
-              Reference https://github.com/ESGF/esgf-roadmap/issues/83.
+              Reference https://github.com/sturoscy-personal/esgf-roadmap/issues/83.
             labels: schema,docs
-            repo: ESGF/esgf-roadmap
+            repo: sturoscy-personal/esgf-roadmap
 
           - title: "Verify Checksums Across East & West Catalogs"
             body: |
               Ensure checksum generation from `esgmapfile` produces consistent hashes.
-              Reopen https://github.com/ESGF/esgf-roadmap/issues/84 if discrepancies reappear.
+              Reopen https://github.com/sturoscy-personal/esgf-roadmap/issues/84 if discrepancies reappear.
             labels: validation,bug,sync
-            repo: ESGF/esgf-roadmap
+            repo: sturoscy-personal/esgf-roadmap
 
           - title: "ESGF Replicator Planning"
             body: |
               Plan and track development for ESGF Replicator component.
               Document interfaces, data flow, and testing milestones.
             labels: replicator,planning
-            repo: ESGF/esgf-roadmap
+            repo: sturoscy-personal/esgf-roadmap
 
     steps:
       - name: Create issues
