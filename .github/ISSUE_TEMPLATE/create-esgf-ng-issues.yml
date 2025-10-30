@@ -82,8 +82,13 @@ jobs:
       - name: Create issues
         uses: peter-evans/create-issue@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ matrix.repo }}
           title: ${{ matrix.title }}
           body: ${{ matrix.body }}
           labels: ${{ matrix.labels }}
+
+      - name: Add issue to ESGF-core-architecture project board
+        uses: github/add-to-project@v1.1.0
+        with:
+          project-url: https://github.com/orgs/ESGF/projects/11
+          item-id: ${{ steps.create_issue.outputs.issue_node_id }}
