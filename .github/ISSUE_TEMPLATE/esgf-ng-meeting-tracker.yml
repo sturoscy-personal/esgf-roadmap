@@ -11,13 +11,13 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## 🧭 ESGF-NG Meeting Tracker
+        ## * ESGF-NG Meeting Tracker
         Use this issue to summarize current progress, blockers, and next steps for ESGF-NG load testing, schema updates, and integrations.
 
   - type: input
     id: meeting_date
     attributes:
-      label: "📅 Meeting Date"
+      label: " * Meeting Date"
       description: "Enter the date of this meeting (YYYY-MM-DD)"
       placeholder: "2025-10-29"
     validations:
@@ -26,21 +26,21 @@ body:
   - type: input
     id: facilitator
     attributes:
-      label: "👤 Facilitator"
+      label: "* Facilitator"
       description: "Who led this session?"
       placeholder: "Steve Turoscy"
 
   - type: input
     id: meeting_link
     attributes:
-      label: "🔗 Meeting Reference / Notes"
+      label: "* Meeting Reference / Notes"
       description: "Link to meeting notes, agenda, or recording (if available)."
       placeholder: "https://example.com/agenda"
 
   - type: dropdown
     id: focus_area
     attributes:
-      label: "🎯 Primary Focus Area"
+      label: "* Primary Focus Area"
       options:
         - Load Testing
         - Publisher Integration
@@ -54,7 +54,7 @@ body:
   - type: textarea
     id: load_testing
     attributes:
-      label: "🚀 ESGF-NG Load Testing Status"
+      label: "* ESGF-NG Load Testing Status"
       description: "Summarize 48-hour test status, datasets, and outcomes."
       value: |
         **Scope:**
@@ -80,7 +80,7 @@ body:
   - type: textarea
     id: publisher_integration
     attributes:
-      label: "🧩 Publisher Integration Testing"
+      label: "* Publisher Integration Testing"
       description: "Track setup and outcomes for Publisher-side testing."
       value: |
         Reference: [esgf-roadmap#92](https://github.com/ESGF/esgf-roadmap/issues/92)
@@ -96,7 +96,7 @@ body:
   - type: textarea
     id: schema_validation
     attributes:
-      label: "📜 Schema & Validation Consistency"
+      label: "* Schema & Validation Consistency"
       description: "Progress on JSON schema, checksum validation, and documentation."
       value: |
         References:
@@ -114,7 +114,7 @@ body:
   - type: textarea
     id: field_prefixes
     attributes:
-      label: "🔠 Field Conventions & Extensions"
+      label: "* Field Conventions & Extensions"
       description: "Status of field prefixes, free-text extensions, and schema enforcement."
       value: |
         Reference: [Field Prefix Convention #82](https://github.com/ESGF/esgf-roadmap/issues/82)
@@ -130,7 +130,7 @@ body:
   - type: textarea
     id: ref_coordination
     attributes:
-      label: "🔗 REF Integration & Data Challenge Coordination"
+      label: "* REF Integration & Data Challenge Coordination"
       description: "Track coordination and test runs with REF team."
       value: |
         Reference: [REF Integration #93](https://github.com/ESGF/esgf-roadmap/issues/93)
@@ -145,7 +145,7 @@ body:
   - type: textarea
     id: external_dependencies
     attributes:
-      label: "🌐 Coordination & External Dependencies"
+      label: "* Coordination & External Dependencies"
       description: "Track related CEDA, ESA, Globus, and CMIP7 dependencies."
       value: |
         **External Partners:**
@@ -159,7 +159,7 @@ body:
   - type: textarea
     id: reminders
     attributes:
-      label: "🧱 Ongoing Projects & Reminders"
+      label: "* Ongoing Projects & Reminders"
       value: |
         - [ ] ESGF Replicator planning — (Steve)
         - [ ] ESGF-NG architecture docs refactor
@@ -172,14 +172,14 @@ body:
   - type: textarea
     id: discussion
     attributes:
-      label: "💬 Discussion & Open Questions"
+      label: "* Discussion & Open Questions"
       description: "List any questions, blockers, or discussion items from this meeting."
       placeholder: "- [ ] Example: Confirm global vs. equatorial bounding box for CMIP horizontal data"
 
   - type: textarea
     id: next_steps
     attributes:
-      label: "✅ Next Steps / Assignments"
+      label: "* Next Steps / Assignments"
       description: "Summarize upcoming actions and responsible parties."
       value: |
         | Task | Owner | Due |
@@ -194,7 +194,7 @@ body:
   - type: input
     id: next_review
     attributes:
-      label: "🗓️ Next Review Date"
+      label: "* Next Review Date"
       description: "When should progress be reviewed again?"
       placeholder: "2025-11-05"
 
